@@ -8,12 +8,10 @@
       </header>
       <section class="modal-card-body">
         <div class="container">
-          <div class="columns">
-            <div class="field has-text-left">
-              <label class="label">Name</label>
-              <div class="control">
-                <input v-model="name" class="input is-medium" type="text" />
-              </div>
+          <div class="field has-text-left">
+            <label class="label">Name</label>
+            <div class="control">
+              <input v-model="name" class="input is-medium" type="text" />
             </div>
           </div>
         </div>
@@ -60,7 +58,7 @@ export default {
           self.$emit("updateaccount", response.data.data);
         })
         .catch(function (error) {
-          console.log(error);
+          alert(error);
         });
     },
   },

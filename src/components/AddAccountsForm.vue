@@ -1,20 +1,18 @@
 <template>
-  <div class="modal" v-bind:class="{ 'is-active': isModalActive}">
-    <div class="modal-background"  @click="close"></div>
+  <div class="modal" v-bind:class="{ 'is-active': isModalActive }">
+    <div class="modal-background" @click="close"></div>
     <div class="modal-card">
       <header class="modal-card-head">
         <p class="modal-card-title">Add Account</p>
-        <button class="delete" aria-label="close"  @click="close"></button>
+        <button class="delete" aria-label="close" @click="close"></button>
       </header>
       <section class="modal-card-body">
         <div class="container">
-          <div class="columns">
-              <div class="field has-text-left">
-                <label class="label">Name</label>
-                <div class="control">
-                  <input v-model="name" class="input is-medium" type="text" />
-                </div>
-              </div>
+          <div class="field has-text-left">
+            <label class="label">Name</label>
+            <div class="control">
+              <input v-model="name" class="input is-medium" type="text" />
+            </div>
           </div>
         </div>
       </section>
@@ -32,7 +30,7 @@ import axios from "axios";
 export default {
   name: "AddAccount",
   props: {
-    isModalActive: Boolean
+    isModalActive: Boolean,
   },
   data() {
     return {
@@ -43,7 +41,7 @@ export default {
   },
   methods: {
     close() {
-      this.$emit("closeadduser","")
+      this.$emit("closeadduser", "");
     },
     addUser() {
       var self = this;
@@ -59,7 +57,7 @@ export default {
           self.$emit("addlist", response.data.data);
         })
         .catch(function (error) {
-          console.log(error);
+          alert(error);
         });
     },
   },
